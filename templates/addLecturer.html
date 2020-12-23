@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/tema.css">
+    <title>Добавить преполавателя</title>
+    <style>
+       form {
+          margin: 20px; 
+       }
+       .err {
+        margin: 20px; 
+       }
+       </style>
+</head>
+<body>
+{% include "Nav.html" %}
+    <div class="err" >
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</div>
+    <form action="" method="post" >
+        <p>
+        <label for="last_name">Фамилия</label>
+    </p><p>
+        <input type="text" name="last_name">
+    </p>
+    <p>
+        <label for="name">Имя</label>
+    </p><p>
+        <input type="text" name="name">
+    </p>
+    <p>
+        <label for="surname">Отчество</label>
+    </p><p>
+        <input type="text" name="surname">
+    </p>
+    <p>
+        <input type="submit" class="btn btn-primary">
+    </p>
+    </form>
+</body>
+</html>

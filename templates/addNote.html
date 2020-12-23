@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="/static/css/tema.css">
+    <title>Добавить запись в расписание</title>
+    <style>
+       form {
+          margin: 20px; 
+       }
+       .err {
+        margin: 20px; 
+       }
+       .form-group{
+           max-width: 500px;
+       }
+       </style>
+</head>
+<body>
+{% include "Nav.html" %}
+    <div class="err" >
+    {% if message %}
+        <p>{{ message }}</p>
+    {% endif %}
+</div>
+    <form action="" method="post" >
+        <p>
+            <div class="form-group">
+                <label for="group">Группа</label>
+                <select class="form-control" id="exampleSelect8" name="group">
+                {% for group in groups %}
+                <option>{{ group.name }}</option>
+                {% endfor %}
+                  <!-- <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option> -->
+                </select>
+              </div>
+        </p>
+        <p>
+            <div class="form-group">
+                <label for="chet">Четность недели</label>
+                <select class="form-control" id="exampleSelect5" name="chet">
+                    
+                    <option value="0" selected>Четная</option>
+                    <option value="1" selected>Нечетная</option>
+                   
+                </select>
+              </div>
+        </p>
+        <p>
+            <div class="form-group">
+                <label for="day">День недели</label>
+                <select class="form-control" id="exampleSelect6" name="day">
+                    
+                    <option>Понедельник</option>
+                    <option>Вторник</option>
+                    <option>Среда</option>
+                    <option>Четверг</option>
+                    <option>Пятница</option>
+                    <option>Суббота</option>
+                    
+                </select>
+              </div>
+        </p>
+        <p>
+        <div class="form-group">
+            <label for="interval">Время</label>
+            <select class="form-control" id="exampleSelect2" name="interval">
+                {% for interval in intervals %}
+                <option>{{ interval.interval }}</option>
+                {% endfor %}
+            </select>
+          </div>
+    </p>
+   <p>
+        <div class="form-group">
+            <label for="subject">Предмет</label>
+            <select class="form-control" id="exampleSelect3" name="subject">
+                {% for subject in subjects %}
+                <option>{{ subject.subject_name }}</option>
+                {% endfor %}
+            </select>
+          </div>
+    </p>
+   <p>
+        <div class="form-group">
+            <label for="lecturer">Преподаватель</label>
+            <select class="form-control" id="exampleSelect4" name="lecturer">
+                {% for lecturer in lecturers %}
+                <option>{{ lecturer.last_name }} {{ lecturer.name }} {{ lecturer.surname }}</option>
+                {% endfor %}
+            </select>
+          </div>
+    </p>
+    <p>
+        <input type="submit" class="btn btn-primary">
+    </p>
+    </form>
+</body>
+</html>
